@@ -39,6 +39,9 @@
                     case 'jquery-treeview':
                         echo '<link href="'.$pdet_valor['hostapp'].'/lib/js/jzaefferer-jquery-treeview/jquery.treeview.css" rel="stylesheet" type="text/css"/>';
                         break;
+					case 'uisearch':
+						echo '<link href="'.$pdet_valor['hostapp'].'/lib/js/uisearch/uisearch.js"></script>';
+						break;
                     case 'font-awesome':
                         echo '<link href="'.$pdet_valor['hostapp'].'/lib/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>';
                         break;
@@ -103,11 +106,11 @@
 					<script src="js/classie.js"></script>
 					<script src="js/uisearch.js"></script>
 						<script>
-							new UISearch( document.getElementById( 'sb-search' ) );
-						</script>
+		new UISearch( document.getElementById( 'sb-search' ) );
+	</script>
 					<!-- //search-scripts -->
 
-				<div class="ca-r">
+				<!--<div class="ca-r">
 					<div class="cart box_1">
 						<a href="checkout.html">
 						<h3> <div class="total">
@@ -117,7 +120,7 @@
 						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 
 					</div>
-				</div>
+				</div>-->
 					<div class="clearfix"> </div>
 			</div>
 				
@@ -132,13 +135,107 @@
 				</div>
 		  <div class=" h_menu4">
 				<ul class="memenu skyblue">
-					  <li><a class="color8" href="index.html">BED LINEN</a></li>	
-				      <li><a class="color1" href="#">CUSHIONS</a>
+					  <li><a href="<?php echo $pdet_valor['hostapp']; ?>" class="color8"><?php echo $menuSys['inicio']['nombre']; ?></a></li>
+					  <?php
+                        
+                        for($f=0; $f < count($vectorMenu); $f++){
+                            $menuCatAct = ''; 
+                            $menuCatInt = '';                            
+                            $subDiv = (int)ceil(count($vectorMenu[$f]['subcategorias']) / 3);                            
+                            
+                            // Validar si el menu seleccionado
+                            if( 
+                                count($globalCategoria) > 0 && 
+                                $vectorMenu[$f]['nombre_seo'] == $globalCategoria['nombre_seo'] 
+                            ){
+                                $menuCatAct = 'active'; 
+                            }
+                            
+                            $cntCatInt = 1;
+                            $flaSubAbierta = false;
+                            $columnasAbi = 0;
+                            
+                            for($i=0; $i < count($vectorMenu[$f]['subcategorias']); $i++){
+                                
+                                // Si esta cerrada abrirla
+                                if($flaSubAbierta == false){
+                                    $menuCatInt .= '<div class="">';
+                                    $menuCatInt .= '<ul class="">';
+                                    
+                                    $columnasAbi++;
+                                    $flaSubAbierta = true;
+                                }
+                                
+                                // Escribir el item
+                                $menuCatInt .= '<li><a class="color1" href="'.$pdet_valor['hostapp'].'/'.$vectorMenu[$f]['nombre_seo'].'/'.$vectorMenu[$f]['subcategorias'][$i]['nombre_seo'].'">';
+                                $menuCatInt .= '';
+                                $menuCatInt .= ''.$vectorMenu[$f]['subcategorias'][$i]['nombre'].'</a></li>';
+                                
+                                // si esta abierta y solo contine un item o ya tiene el tamaño cerrarlo
+                                if(
+                                    $flaSubAbierta == true && (                                    
+                                        ( $i + 1 ) == count($vectorMenu[$f]['subcategorias']) || 
+                                        $cntCatInt == $subDiv
+                                    )
+                                ){
+                                    $menuCatInt .= '</ul>';
+                                    $menuCatInt .= '</div>';
+                                    
+                                    $cntCatInt = 1;
+                                    $flaSubAbierta = false;
+                                }else{
+                                    $cntCatInt++;
+                                }
+                                
+                                // Añadir las columnas que faltaron de 3
+                                if( ( $i + 1 ) == count($vectorMenu[$f]['subcategorias']) ){
+                                    for( $c=$columnasAbi ; $c < 3; $c++ ){
+                                        $menuCatInt .= '<div class="col-sm-3"></div>';
+                                    }
+                                }
+                                
+                            }
+                            
+                            if( !empty($menuCatInt) ){
+                                $menuCatInt .= '<div class="col-sm-3 w3l">';
+                                $menuCatInt .= '<a href="'.$pdet_valor['hostapp'].'/'.$vectorMenu[$f]['nombre_seo'].'"><img src="'.$pdet_valor['hostapp'].'/images/categorias/'.$vectorMenu[$f]['nombre_seo'].'.png?v='.$pdet_valor['webversion'].'" class="img-responsive" alt="'.$vectorMenu[$f]['nombre'].'"></a>';
+                                $menuCatInt .= '</div>';
+                            }
+                            
+                            $menuCat = '<li class=" '.$menuCatAct.'">';
+                            $menuCat .= '<a href="#" class="color1"><span>';
+                            $menuCat .= ucfirst(strtolower($vectorMenu[$f]['nombre']));
+                            $menuCat .= '<b class="caret"></b></span></a>';
+							$menuCat .= '<div class="mepanel">';
+							$menuCat .= '<div class="row">';
+							$menuCat .= '<div class="grid">';
+							$menuCat .= '<div class="h_nav">';
+                            $menuCat .= '<ul>';
+                            $menuCat .= $menuCatInt;
+                            //$menuCat .= '<div class="clearfix"></div>';
+                            
+                            $menuCat .= '</ul>';
+							$menuCat .= '</div>';
+							$menuCat .= '</div>';
+							$menuCat .= '</div>';
+							$menuCat .= '</div>';
+                            $menuCat .= '</li>';
+                            
+                            // Imprimir la categoria solo si tiene subcategorias                            
+                            if( !empty($menuCatInt) ){
+                                echo $menuCat;
+                            }
+                                                        
+                        } 
+                        
+                        ?>
+				      <!--<li><a class="color1" href="#">CUSHIONS</a>
 				      	<div class="mepanel">
 						<div class="row">
 							<div class="col1">
 								<div class="h_nav">
 									<ul>
+										
 										<li><a href="products.html">Bedskirt</a></li>
 										<li><a href="products.html">Blanket/Throw</a></li>
 										<li><a href="products.html">Collection/Duvet</a></li>
@@ -188,66 +285,12 @@
 							</div>
 						  </div>
 						</div>
-					</li>
-				    <li class="grid"><a class="color2" href="#">BEDSPREADS</a>
-					  	<div class="mepanel">
-						<div class="row">
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="products.html">Bedskirt</a></li>
-										<li><a href="products.html">Blanket/Throw</a></li>
-										<li><a href="products.html">Collection/Duvet</a></li>
-										<li><a href="products.html">Comforter</a></li>
-										<li><a href="products.html">Comforter Set</a></li>
-										<li><a href="products.html">Decorative Pillow</a></li>
-										<li><a href="products.html">Mattress Pad </a></li>
-										<li><a href="products.html">Mattress Topper</a></li>
-										<li><a href="products.html">Pillow</a></li>
-										<li><a href="products.html">Pillow Protector</a></li>
-										
-									</ul>	
-								</div>								
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="products.html">Alpaca</a></li>
-										<li><a href="products.html">Cashmere</a></li>
-										<li><a href="products.html">Cotton</a></li>
-										<li><a href="products.html">Cotton Blend</a></li>
-										<li><a href="products.html">Down</a></li>
-										<li><a href="products.html">Down Alternative</a></li>
-										<li><a href="products.html">Egyptian Cotton</a></li>
-										<li><a href="products.html">Modal</a></li>
-										<li><a href="products.html">Pima Cotton</a></li>
-										<li><a href="products.html">Silk </a></li>
-										
-									</ul>		
-								</div>							
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									
-									<ul>
-										<li><a href="products.html">Bedskirt</a></li>
-										<li><a href="products.html">Blanket/Throw</a></li>
-										<li><a href="products.html">Collection/Duvet</a></li>
-										<li><a href="products.html">Comforter</a></li>
-										<li><a href="products.html">Comforter Set</a></li>
-										<li><a href="products.html">Decorative Pillow</a></li>
-										<li><a href="products.html">Mattress Pad </a></li>
-										<li><a href="products.html">Mattress Topper</a></li>
-										<li><a href="products.html">Pillow</a></li>
-										<li><a href="products.html">Pillow Protector</a></li>
-									</ul>	
-								</div>												
-							</div>
-						  </div>
-						</div>
-			    </li>
-				<li><a class="color4" href="login.html">Login</a></li>				
-				<li><a class="color6" href="contact.html">Contact</a></li>
+					</li>-->
+					<!--<li class="grid"><a class="color2" href="#">BEDSPREADS</a>-->
+				<li><a class="color4" href="<?php echo $pdet_valor['hostapp']; ?>/login" ><?php echo $menuSys['login']['nombre']; ?></a></li>             
+				<li><a class="color6" href="<?php echo $pdet_valor['hostapp']; ?>/registro" ><?php echo $menuSys['registro']['nombre']; ?></a></li>   
+				<!--<li><a class="color4" href="login.html">Login</a></li>				
+				<li><a class="color6" href="contact.html">Contact</a></li>-->
 			  </ul> 
 			</div>
 				

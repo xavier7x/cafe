@@ -122,7 +122,7 @@
     
 
 <!-- start menu -->
-
+	
 <script type="text/javascript" src="js/memenu.js"></script>
 <script type="text/javascript" language="javascript" src="<?php echo $pdet_valor['hostapp']; ?>/js/cabpie/funciones.js?v=<?php echo $pdet_valor['webversion']; ?>"></script>
 <script type="text/javascript" language="javascript" src="<?php echo $pdet_valor['hostapp']; ?>/js/<?php echo $varAcceso['ventana']; ?>/funciones.js?v=<?php echo $pdet_valor['webversion']; ?>"></script>
