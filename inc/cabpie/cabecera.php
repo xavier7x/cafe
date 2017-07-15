@@ -1,75 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<title><?php echo ucfirst(strtolower($varAcceso['nombre'])); ?> | <?php echo $pdet_valor['empresa']; ?></title>
-<!--inicio meta-->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Mattress Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<meta name="keywords" content="<?php echo $varAcceso['meta_keywords']; ?>">
-<meta name="description" content="<?php echo $varAcceso['meta_description']; ?>">
-<meta name='author' content='markservices'>
-<meta name='owner' content='Lcdo. Walter Xavier Moreno Aviles'>
-<meta name="robots" content="index, follow">
-<!--fin meta-->
-<!--icono de pagina web-->
-<link href="<?php echo $pdet_valor['hostapp']; ?>/images/system/favicon.ico?v=<?php echo $pdet_valor['webversion']; ?>" rel="icon" type="image/x-icon"/>
-<!--fin icono pagina web-->
-<!--inicio libs pagina web-->
-<?php
-        for($f=0; $f<count($varAcceso['framework']); $f++){
-            switch($varAcceso['framework'][$f]){ 
-                case 'jquery-ui':
-                    echo '<link href="'.$pdet_valor['hostapp'].'/lib/js/jquery-ui/jquery-ui-1.12.0.custom/jquery-ui.min.css" rel="stylesheet" type="text/css"/>';
-                    echo '<link href="'.$pdet_valor['hostapp'].'/lib/js/jquery-ui/jquery-ui-1.12.0.custom/jquery-ui.structure.min.css" rel="stylesheet" type="text/css"/>';
-                    echo '<link href="'.$pdet_valor['hostapp'].'/lib/js/jquery-ui/jquery-ui-1.12.0.custom/jquery-ui.theme.min.css" rel="stylesheet" type="text/css"/>';
-                    break;
-                case 'bootstrap':
-                    echo '<link href="'.$pdet_valor['hostapp'].'/lib/css/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>';
-                    echo '<link href="'.$pdet_valor['hostapp'].'/lib/css/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" media="all"/>';
-                    break;
-                case 'bootstrap-datepicker':
-                    echo '<link href="'.$pdet_valor['hostapp'].'/lib/js/bootstrap-datepicker-master/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css"/>';
-                    break;
-                case 'jqgrid':
-                    echo '<link href="'.$pdet_valor['hostapp'].'/lib/js/Guriddo_jqGrid_JS_5.1.1/css/ui.jqgrid-bootstrap.css" rel="stylesheet" type="text/css"/>';
-                    break;
-                case 'jquery-treeview':
-                    echo '<link href="'.$pdet_valor['hostapp'].'/lib/js/jzaefferer-jquery-treeview/jquery.treeview.css" rel="stylesheet" type="text/css"/>';
-                    break;
-                case 'font-awesome':
-                    echo '<link href="'.$pdet_valor['hostapp'].'/lib/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>';
-                    break;
-                case 'jstarbox':
-                    echo '<link href="'.$pdet_valor['hostapp'].'/lib/js/jStarbox-master/css/jstarbox.css" rel="stylesheet" type="text/css"/>';
-                    break;
+    <meta charset="UTF-8">
+    <title><?php echo ucfirst(strtolower($varAcceso['nombre'])); ?> | <?php echo $pdet_valor['empresa']; ?></title>
+    <!--inicio meta-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Mattress Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <meta name="keywords" content="<?php echo $varAcceso['meta_keywords']; ?>">
+    <meta name="description" content="<?php echo $varAcceso['meta_description']; ?>">
+    <meta name='author' content='markservices'>
+    <meta name='owner' content='Lcdo. Walter Xavier Moreno Aviles'>
+    <meta name="robots" content="index, follow">
+    <!--fin meta-->
+    <!--icono de pagina web-->
+    <link href="<?php echo $pdet_valor['hostapp']; ?>/images/system/favicon.ico?v=<?php echo $pdet_valor['webversion']; ?>" rel="icon" type="image/x-icon"/>
+    <!--fin icono pagina web-->
+    <!--inicio libs pagina web-->
+    <?php
+            for($f=0; $f<count($varAcceso['framework']); $f++){
+                switch($varAcceso['framework'][$f]){ 
+                    case 'jquery-ui':
+                        echo '<link href="'.$pdet_valor['hostapp'].'/lib/js/jquery-ui/jquery-ui-1.12.0.custom/jquery-ui.min.css" rel="stylesheet" type="text/css"/>';
+                        echo '<link href="'.$pdet_valor['hostapp'].'/lib/js/jquery-ui/jquery-ui-1.12.0.custom/jquery-ui.structure.min.css" rel="stylesheet" type="text/css"/>';
+                        echo '<link href="'.$pdet_valor['hostapp'].'/lib/js/jquery-ui/jquery-ui-1.12.0.custom/jquery-ui.theme.min.css" rel="stylesheet" type="text/css"/>';
+                        break;
+                    case 'bootstrap':
+                        echo '<link href="'.$pdet_valor['hostapp'].'/lib/css/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>';
+                        echo '<link href="'.$pdet_valor['hostapp'].'/lib/css/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" media="all"/>';
+                        break;
+                    case 'bootstrap-datepicker':
+                        echo '<link href="'.$pdet_valor['hostapp'].'/lib/js/bootstrap-datepicker-master/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css"/>';
+                        break;
+                    case 'jqgrid':
+                        echo '<link href="'.$pdet_valor['hostapp'].'/lib/js/Guriddo_jqGrid_JS_5.1.1/css/ui.jqgrid-bootstrap.css" rel="stylesheet" type="text/css"/>';
+                        break;
+                    case 'jquery-treeview':
+                        echo '<link href="'.$pdet_valor['hostapp'].'/lib/js/jzaefferer-jquery-treeview/jquery.treeview.css" rel="stylesheet" type="text/css"/>';
+                        break;
+                    case 'font-awesome':
+                        echo '<link href="'.$pdet_valor['hostapp'].'/lib/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>';
+                        break;
+                    case 'jstarbox':
+                        echo '<link href="'.$pdet_valor['hostapp'].'/lib/js/jStarbox-master/css/jstarbox.css" rel="stylesheet" type="text/css"/>';
+                        break;
+                }
             }
-        }
-    ?>
-<!--fin libs pagina web-->
-<!--estilos-->
-<link href="<?php echo $pdet_valor['hostapp']; ?>/css/<?php echo $varAcceso['ventana']; ?>/style.css?v=<?php echo $pdet_valor['webversion']; ?>" rel="stylesheet" type="text/css"/>
-<link href="<?php echo $pdet_valor['hostapp']; ?>/css/cabpie/style.css?v=<?php echo $pdet_valor['webversion']; ?>" rel="stylesheet" type="text/css"/>
-<!--fin estilos-->
-<!--fonts-->
-<link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'><!--//fonts-->
-<!--fin fonts-->
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
-<!-- Custom Theme files -->
-<!--theme-style-->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
-<!--//theme-style-->
+        ?>
+    <!--fin libs pagina web-->
+    <!--estilos-->
+    <link href="<?php echo $pdet_valor['hostapp']; ?>/css/<?php echo $varAcceso['ventana']; ?>/style.css?v=<?php echo $pdet_valor['webversion']; ?>" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo $pdet_valor['hostapp']; ?>/css/cabpie/style.css?v=<?php echo $pdet_valor['webversion']; ?>" rel="stylesheet" type="text/css"/>
+    <!--fin estilos-->
+    <!--fonts-->
+    <link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'><!--//fonts-->
+    <!--fin fonts-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <!--theme-style-->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />	
+    <!--//theme-style-->
 
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
-<!-- start menu -->
-<link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="js/memenu.js"></script>
-<script>$(document).ready(function(){$(".memenu").memenu();});</script>
-<script src="js/simpleCart.min.js"> </script>
+    <!-- start menu -->
+    
+
+    <script type="text/javascript" src="js/memenu.js"></script>
+    <script src="js/simpleCart.min.js"> </script>
 </head>
 <body>
 <!--header-->
@@ -78,10 +80,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="social">
 				<ul>
-					<li><a href="#"><i class="facebok"> </i></a></li>
-					<li><a href="#"><i class="twiter"> </i></a></li>
-					<li><a href="#"><i class="inst"> </i></a></li>
-					<li><a href="#"><i class="goog"> </i></a></li>
+					<li <?php if(empty($pdet_valor['facebook'])){echo 'class="hidden"';}?>><a href="<?php echo $pdet_valor['facebook']; ?>" target="_blank"><i class="facebok"> </i></a></li>
+					<li <?php if(empty($pdet_valor['twitter'])){echo 'class="hidden"';}?>><a href="<?php echo $pdet_valor['twitter']; ?>" target="_blank"><i class="twiter"> </i></a></li>
+					<li <?php if(empty($pdet_valor['googleplus'])){echo 'class="hidden"';}?>><a href="<?php echo $pdet_valor['googleplus']; ?>" target="_blank"><i class="inst"> </i></a></li>
+                    <li <?php if(empty($pdet_valor['instagram'])){echo 'class="hidden"';}?>><a href="<?php echo $pdet_valor['instagram']; ?>" target="_blank"><i class="goog"> </i></a></li>
+					<?php echo "hola";?>
 						<div class="clearfix"></div>	
 				</ul>
 			</div>
@@ -124,9 +127,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="head-top">
 				<div class="logo">
-					<h1><a href="index.html">Mattress</a></h1>
+					<h1><a href="<?php echo $pdet_valor['hostapp']; ?>">
+                    <img src="<?php echo $pdet_valor['hostapp']; ?>/images/system/logo.png?v=<?php echo $pdet_valor['webversion']; ?>" width="100" height="50" class="img-responsive" alt="<?php echo $pdet_valor['empresa']; ?>">
+                    </a></h1>
 				</div>
-		  <div class=" h_menu4">
+		  <div class="h_menu4">
 				<ul class="memenu skyblue">
 					  <li><a class="color8" href="index.html">BED LINEN</a></li>	
 				      <li><a class="color1" href="#">CUSHIONS</a>
