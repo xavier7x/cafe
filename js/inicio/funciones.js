@@ -3,7 +3,6 @@
 /*                   DOCUMENTO - READY                     */
 /*                                                         */
 /***********************************************************/
-$
 $(document).ready(function() {
     $(".memenu").memenu();
     $("#consulta-producto").submit(function(){

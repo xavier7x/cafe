@@ -69,9 +69,8 @@
 
     <!-- start menu -->
     
-
-    <script type="text/javascript" src="js/memenu.js"></script>
-    <script src="js/simpleCart.min.js"> </script>
+	<script src="js/simpleCart.min.js"> </script>
+	
 </head>
 <body>
 <!--header-->
@@ -84,8 +83,8 @@
 					<li <?php if(empty($pdet_valor['twitter'])){echo 'class="hidden"';}?>><a href="<?php echo $pdet_valor['twitter']; ?>" target="_blank"><i class="twiter"> </i></a></li>
 					<li <?php if(empty($pdet_valor['googleplus'])){echo 'class="hidden"';}?>><a href="<?php echo $pdet_valor['googleplus']; ?>" target="_blank"><i class="inst"> </i></a></li>
                     <li <?php if(empty($pdet_valor['instagram'])){echo 'class="hidden"';}?>><a href="<?php echo $pdet_valor['instagram']; ?>" target="_blank"><i class="goog"> </i></a></li>
-					<?php echo "hola";?>
-						<div class="clearfix"></div>	
+					
+						<div class="clearfix"></div>
 				</ul>
 			</div>
 			<div class="header-left">
@@ -131,7 +130,7 @@
                     <img src="<?php echo $pdet_valor['hostapp']; ?>/images/system/logo.png?v=<?php echo $pdet_valor['webversion']; ?>" width="100" height="50" class="img-responsive" alt="<?php echo $pdet_valor['empresa']; ?>">
                     </a></h1>
 				</div>
-		  <div class="h_menu4">
+		  <div class=" h_menu4">
 				<ul class="memenu skyblue">
 					  <li><a class="color8" href="index.html">BED LINEN</a></li>	
 				      <li><a class="color1" href="#">CUSHIONS</a>

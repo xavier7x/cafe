@@ -11,9 +11,9 @@ class DBManager{
     public function __construct(){
         
 		$this->Servidor = "localhost";
-		$this->BaseDatos = "cafe";
-        $this->Usuario = "xysadmin";
-		$this->Clave = 'xysadmin';
+		$this->BaseDatos = "maquinasdecafeec_cafe";
+        $this->Usuario = "maquinasdecafeec_cafe";
+		$this->Clave = 'wxma171737';
         
 	}
     
